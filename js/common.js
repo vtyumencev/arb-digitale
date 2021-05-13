@@ -16,7 +16,7 @@ $(function() {
 
                 if($(this).hasClass('slide-analytics')) {
 
-                    const setTime = 1000;
+                    const setTime = 2000;
                     let time = setTime;
                     let pieDraw = setInterval(function () {
                         let proc = time / setTime;
@@ -24,7 +24,7 @@ $(function() {
                         let x = Math.cos((Math.PI * 2 * proc)) * 100;
                         let y = Math.sin((Math.PI * 2 * proc)) * 100;
 
-                        console.log((60 - time / setTime * 60) * 1.65);
+                        $('.analytics__pie-counter-num').html(Math.round((60 - time / setTime * 60) * 1.65));
 
                         if(proc > 0.5) {
                             $('#a-pie').attr('d', 'M0,0 L' + x + ',' + y + ' A100,100 0 0,1 100,0 Z');
@@ -34,28 +34,54 @@ $(function() {
                         }
                         else {
                             clearInterval(pieDraw);
+                            $('.analytics__pie-counter-num').html(60);
                         }
 
-
-                        time -= (10 - (60 - time / setTime * 60) / 4);
+                        time -= (10 - Math.pow((60 - time / setTime * 60), 3) / 5000);
                         if(time < 0) {
                             clearInterval(pieDraw);
                         }
                     }, 10)
                 }
+
+
+                if($(this).hasClass('slide-questions')) {
+                    let item = $('.questions__content .slide-questions__item:first-child');
+                    showQuestion(item);
+                }
+
             }
         });
 
     });
 
 
+    // Слайд с вопросами
     $('.slide-questions__header').on('click', function (){
-        $(this).parents('.slide-questions__item')
-            .toggleClass('active')
-            .find('.slide-questions__reply').toggle();
-
+        let item = $(this).parents('.slide-questions__item');
+        if(item.hasClass('active')) {
+            hideQuestion(item);
+        }
+        else {
+            showQuestion(item);
+        }
     })
 
+    // Форма
+    $('.form__input-text, .form__textarea').on('focus', function () {
+        $(this).parents('.form__field').addClass('active');
+    }).on('blur', function () {
+        $(this).parents('.form__field').removeClass('active');
+        if($(this).val().length > 0) {
+            $(this).parents('.form__field').addClass('is-filled');
+        }
+        else {
+            $(this).parents('.form__field').removeClass('is-filled');
+        }
+    });
+    $('.form__checkbox').on('change', function () {
+        $(this).parents('.form__checkbox-container').toggleClass('active');
+    });
 
     calcCanvasProps();
     drawLine();
@@ -193,6 +219,26 @@ function updateExampleBackground() {
     $('.slide-example .slide-background__colored').css('width', (docWidth + bgBorderWidth - s));
 }
 
+function showQuestion(item) {
+
+    let itemHeader = item.find('.slide-questions__header-text');
+
+    let itemReply = item.find('.slide-questions__reply');
+
+    let itemReplyHeight = itemReply.outerHeight();
+    let itemHeaderHeight = itemHeader.outerHeight();
+
+    item.addClass('active').css('padding-bottom', 37 + itemReplyHeight + 'px');
+    itemReply.css('top', itemHeaderHeight - 5);
+}
+
+function hideQuestion(item) {
+    let itemReply = item.find('.slide-questions__reply');
+
+    item.css('padding-bottom', 27 + 'px');
+    item.removeClass('active');
+    itemReply.css('top', 0 + 'px');
+}
 
 
 /*

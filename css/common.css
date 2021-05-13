@@ -2,17 +2,37 @@
     font-family: 'la -solid -900';
     src: url('../fonts/la-solid-900.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'la -brands -400';
+    src: url('../fonts/la-brands-400.ttf') format('truetype');
+}
 
 html {
     font-size: 16px;
     line-height: 1.5rem;
     font-weight: 500;
 }
-body, html, button {
+body, html, button, input, textarea {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     color: #050000;
+    font-size: 1rem;
+}
+
+input[type="text"], input[type="email"], textarea {
+    display: block;
+    border: none;
+    border-bottom: 2px solid #464242;
+    padding: 5px 0;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    background: none;
+}
+
+textarea {
+    resize: vertical;
 }
 
 a {
@@ -35,6 +55,7 @@ main {
     border: 2px solid #050000;
     padding: 18px 36px;
     text-transform: uppercase;
+    font-size: 0.875rem;
     font-weight: 700;
     letter-spacing: 1px;
     transition: 0.2s;
@@ -89,6 +110,77 @@ main {
 }
 .document-link:hover .document-link__text {
     box-shadow: #ff0000 0 6px;
+}
+
+
+.form {
+    width: 100%;
+}
+.form__field {
+    margin: 30px 0;
+    position: relative;
+}
+.form__field-name {
+    color: #707070;
+    position: absolute;
+    pointer-events: none;
+    transition: 0.2s;
+}
+.form__field.active .form__field-name, .form__field.is-filled .form__field-name {
+    font-size: 0.875rem;
+    margin-top: -20px;
+}
+.form__field.active .form__field-name {
+    color: #3FFFB2;
+}
+.form__input-text, .form__textarea {
+    padding: 3px 0 8px 0;
+    transition: border-bottom-color 0.2s;
+}
+.form__field.active .form__input-text, .form__field.active .form__textarea {
+    border-bottom-color: #3FFFB2;
+}
+.form__submit {
+    margin-top: 45px;
+}
+.form__checkbox-container {
+    display: flex;
+    align-items: center;
+}
+.form__checkbox {
+    display: none;
+}
+.form__checkbox-styled-box {
+    border: 2px solid #050000;
+    width: 15px;
+    height: 15px;
+    margin-right: 12px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+}
+.form__checkbox-container.active .form__checkbox-styled-box {
+    background: #24ee9d;
+}
+.form__checkbox-styled-box:before {
+    position: absolute;
+    content: '\F00C';
+    font-family: 'la -solid -900', serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    top: -8px;
+    left: -1px;
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.4s cubic-bezier(.47,1.64,.41,.8);
+    transform: scale(0.5) translateY(5px) scaleY(1.5);
+}
+.form__checkbox-container.active .form__checkbox-styled-box:before {
+    opacity: 1;
+    transform: scale(1) translateY(0) scaleY(1);
+}
+.form__checkbox-label {
+    cursor: pointer;
 }
 
 .landing-background {
@@ -349,6 +441,19 @@ header {
     border: 1px solid #cecece;
     background-color: #f9f9f9;
     box-sizing: border-box;
+    position: relative;
+}
+.analytics__pie-counter {
+    position: absolute;
+    line-height: 0;
+    text-align: center;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    font-weight: 700;
+}
+.analytics__pie-counter-num {
+    font-size: 1.6875rem;
 }
 
 .analytics__text {
@@ -733,7 +838,7 @@ header {
     max-width: 870px;
 }
 
-.for-questions__content {
+.questions__content {
     width: 100%;
 }
 
@@ -742,7 +847,8 @@ header {
     border-bottom: 2px solid #e3e3e3;
     width: 100%;
     margin-bottom: 27px;
-    transition: 0.2s;
+    transition: 0.3s;
+    position: relative;
 }
 .slide-questions__item.active {;
     border-bottom-color: #24ee9d;
@@ -751,6 +857,9 @@ header {
     display: flex;
     justify-content: space-between;
     cursor: pointer;
+    background: #FFFFFF;
+    position: relative;
+    z-index: 2;
 }
 .slide-questions__header-text {
     font-size: 1.125rem;
@@ -763,10 +872,19 @@ header {
     margin-top: 20px;
     font-weight: 400;
     max-width: 700px;
-    transition: 0.2s;
-    display: none;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: 0.3s;
 }
 
+.slide-questions__item.active .slide-questions__reply {
+    visibility: visible;
+    transform: scale(1);
+    opacity: 1;
+}
 .slide-questions__item-icon {
     font-family: 'la -solid -900', serif;
     font-size: 1.5rem;
@@ -783,4 +901,115 @@ header {
 
 .slide-questions__item.active .slide-questions__reply {
 
+}
+
+/* ******* */
+
+.ask-container {
+    max-width: 870px;
+}
+
+.slide-ask .slide__title {
+    font-size: 2.25rem;
+    line-height: 2.875rem;
+}
+.ask__content {
+    width: 100%;
+}
+
+.ask-form__checkbox-label {
+    font-size: 0.875rem;
+    color: #707070;
+}
+
+/* ******* */
+
+
+.slide-footer {
+    box-sizing: border-box;
+    width: calc(100% - 24px);
+    background: #050000;
+    margin: 0 12px;
+    z-index: 0;
+    color: #b5b4b4;
+    font-size: 0.875rem;
+}
+.footer-container {
+    padding: 70px 0 32px 0;
+    display: grid;
+    grid-template-columns: 0.8fr 0.8fr 1fr;
+    gap: 55px 0;
+}
+.footer__left-side {
+}
+.footer__right-side {
+}
+.footer__site-map {
+
+}
+.footer__site-map-link {
+    display: block;
+    color: #b5b4b4;
+    margin-bottom: 5px;
+}
+.footer__site-map-link.accent {
+    color: #24ee9d;
+}
+
+.footer__logos {
+    margin-top: 64px;
+}
+.footer__logo {
+    height: 67px;
+    margin-left: 64px;
+}
+.footer__logo:first-child {
+    margin-left: 0;
+}
+
+.footer__contact-link {
+    display: block;
+    margin-bottom: 27px;
+    font-weight: 600;
+    font-size: 2.25rem;
+    color: #24ee9d;
+}
+.footer__social {
+    margin-top: 28px;
+    display: inline-grid;
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 53px;
+}
+.footer__social-link {
+
+}
+.footer__social-icon {
+    font-family: 'la -brands -400', serif;
+    background-size: cover;
+    font-size: 1.8rem;
+    color: #FFFFFF;
+    transition: 0.5s;
+}
+
+.footer__social-link-telegram:hover .footer__social-icon {
+    color: #008aff;
+}
+.footer__social-link-youtube:hover .footer__social-icon {
+    color: #ff0000;
+}
+.footer__social-link-instagram:hover .footer__social-icon {
+    color: #ed27e6;
+}
+.footer__social-link-facebook:hover .footer__social-icon {
+    color: #495aff;
+}
+
+.footer__copyright {
+    color: #707070;
+    font-size: 0.8125rem;
+}
+.footer__policy-link {
+    color: #707070;
+    font-size: 0.8125rem;
 }
