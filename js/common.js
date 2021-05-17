@@ -9,50 +9,10 @@ let p0 = {x:0,y:60},  // The first point on curve
     p1 = {x:600,y:70};  // The last point on curve
 
 $(function() {
+    onPageSizeChange();
+
     $(document).scroll(function() {
-        $(".slide").each(function(i) {
-            if($(this).hasClass('show') === false && ($(this).offset().top - $(document).scrollTop() - 300) < 0) {
-                $(this).addClass('show');
-
-                if($(this).hasClass('slide-analytics')) {
-
-                    const setTime = 2000;
-                    let time = setTime;
-                    let pieDraw = setInterval(function () {
-                        let proc = time / setTime;
-
-                        let x = Math.cos((Math.PI * 2 * proc)) * 100;
-                        let y = Math.sin((Math.PI * 2 * proc)) * 100;
-
-                        $('.analytics__pie-counter-num').html(Math.round((60 - time / setTime * 60) * 1.65));
-
-                        if(proc > 0.5) {
-                            $('#a-pie').attr('d', 'M0,0 L' + x + ',' + y + ' A100,100 0 0,1 100,0 Z');
-                        }
-                        else if(proc >= 0.4) {
-                            $('#a-pie').attr('d', 'M0,0 L' + x + ',' + y + ' A100,100 0 1,1 100,0 Z');
-                        }
-                        else {
-                            clearInterval(pieDraw);
-                            $('.analytics__pie-counter-num').html(60);
-                        }
-
-                        time -= (10 - Math.pow((60 - time / setTime * 60), 3) / 5000);
-                        if(time < 0) {
-                            clearInterval(pieDraw);
-                        }
-                    }, 10)
-                }
-
-
-                if($(this).hasClass('slide-questions')) {
-                    let item = $('.questions__content .slide-questions__item:first-child');
-                    showQuestion(item);
-                }
-
-            }
-        });
-
+        onPageSizeChange();
     });
 
 
@@ -81,6 +41,41 @@ $(function() {
     });
     $('.form__checkbox').on('change', function () {
         $(this).parents('.form__checkbox-container').toggleClass('active');
+    });
+
+    let options =  {
+        translation: {
+            'Z': {
+                pattern: /[+]/, optional: true
+            }
+        },
+        onKeyPress: function(cep, e, field, options) {
+            if(cep.length === 1 && cep[0] === '9') {
+                field.val('+7 (9');
+            }
+            else if(cep.length === 1 && cep[0] === '3') {
+                field.val('+7 (3');
+            }
+            else if(cep.length === 1 && cep[0] === '7') {
+                field.val('+7 (');
+            }
+            else if(cep.length === 1 && cep[0] !== '8') {
+                field.val('');
+            }
+        }};
+    $('input[type="tel"]').mask('Z0 (000) 000-00-00', options);
+
+    $('#modal-1').on('show.bs.modal', function (e) {
+        if($(e.relatedTarget).data('modal-title') !== undefined) {
+            $('#modal-1 .modal-title').html($(e.relatedTarget).data('modal-title'));
+        }
+        if($(e.relatedTarget).data('modal-submit') !== undefined) {
+            $('#modal-1 .form__submit').html($(e.relatedTarget).data('modal-submit'));
+        }
+    });
+
+    $('.scroll-up').on('click', function () {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
     });
 
     calcCanvasProps();
@@ -140,6 +135,59 @@ $(function() {
 
 });
 
+function onPageSizeChange() {
+    $(".slide").each(function(i) {
+        if($(this).hasClass('show') === false && ($(this).offset().top - $(document).scrollTop() - 300) < 0) {
+            $(this).addClass('show');
+
+            if($(this).hasClass('slide-analytics')) {
+
+                const setTime = 2000;
+                let time = setTime;
+                let pieDraw = setInterval(function () {
+                    let proc = time / setTime;
+
+                    let x = Math.cos((Math.PI * 2 * proc)) * 100;
+                    let y = Math.sin((Math.PI * 2 * proc)) * 100;
+
+                    $('.analytics__pie-counter-num').html(Math.round((60 - time / setTime * 60) * 1.65));
+
+                    if(proc > 0.5) {
+                        $('#a-pie').attr('d', 'M0,0 L' + x + ',' + y + ' A100,100 0 0,1 100,0 Z');
+                    }
+                    else if(proc >= 0.4) {
+                        $('#a-pie').attr('d', 'M0,0 L' + x + ',' + y + ' A100,100 0 1,1 100,0 Z');
+                    }
+                    else {
+                        clearInterval(pieDraw);
+                        $('.analytics__pie-counter-num').html(60);
+                    }
+
+                    time -= (10 - Math.pow((60 - time / setTime * 60), 3) / 5000);
+                    if(time < 0) {
+                        clearInterval(pieDraw);
+                    }
+                }, 10)
+            }
+
+
+            if($(this).hasClass('slide-questions')) {
+                let item = $('.questions__content .slide-questions__item:first-child');
+                showQuestion(item);
+            }
+
+        }
+    });
+
+
+    if($(document).scrollTop() > 50) {
+        $('header').addClass('minimize');
+    }
+    else {
+        $('header').removeClass('minimize');
+    }
+}
+
 function calcCanvasProps() {
     docWidth = $(window).width() - bgBorderWidth * 2;
     document.getElementById('svg-work-line').style.width = docWidth + 'px';
@@ -186,14 +234,15 @@ function setMarkers() {
         stepCard.style.bottom = (200 - p.y ) + 'px';
 
         stepCard.querySelector('.our-work__picture').style.bottom = (90 + p.y) + 'px';
-    }
 
-    let stepCard = document.getElementById('ow-step-' + numberOfPoints);
-    if(stepCard.offsetLeft + stepCard.querySelector('.our-work__description').clientWidth > docWidth) {
-        stepCard.querySelector('.our-work__description').style.right = 0 + 'px';
-    }
-    else {
-        stepCard.querySelector('.our-work__description').style.removeProperty('right')
+        if(stepCard.offsetLeft + stepCard.querySelector('.our-work__picture').clientWidth > docWidth) {
+            stepCard.querySelector('.our-work__description').style.right = 0 + 'px';
+            stepCard.querySelector('.our-work__picture').style.right = 0 + 'px';
+        }
+        else {
+            stepCard.querySelector('.our-work__description').style.removeProperty('right')
+            stepCard.querySelector('.our-work__picture').style.removeProperty('right')
+        }
     }
 
 

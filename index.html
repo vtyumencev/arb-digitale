@@ -2,13 +2,23 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="css/common.css" />
     <script src="js/common.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>АРБ-ПРО Digital</title>
 </head>
 <body>
@@ -18,24 +28,31 @@
         <div class="regular-container header-container">
             <header>
                 <div class="main-logo">
-                    <img src="img/logo-anim-min.gif" alt="Анимированный логотип">
+                    <a class="header__logo" href="#main"></a>
                 </div>
                 <div class="main-menu">
                     <ul>
-                        <li><a href="">Для кого</a></li>
-                        <li><a href="">Схема работы</a></li>
-                        <li><a href="">Почему мы</a></li>
-                        <li><a href="">FAQ</a></li>
+                        <li><a href="#whom">Для кого</a></li>
+                        <li><a href="#how">Схема работы</a></li>
+                        <li><a href="#why">Почему мы</a></li>
+                        <li><a href="#faq">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="main-callback">
-                    <a href="tel:+79227198010" class="callback-link button-colored">Заказать звонок</a>
+                    <button
+                            class="callback-link button-colored"
+                            data-toggle="modal"
+                            data-target="#modal-1"
+                            data-modal-id="header-call-back"
+                            data-modal-submit="Заказать звонок"
+                            data-modal-title="Заказать звонок">
+                        Заказать звонок</button>
                 </div>
             </header>
         </div>
     </div>
 
-    <main>
+    <main id="main">
 
         <div class="slide slide-main">
             <div class="regular-container slide-main__container">
@@ -54,7 +71,7 @@
             </div>
         </div>
 
-        <div class="slide regular-slide slide-for-whom">
+        <div class="slide regular-slide slide-for-whom" id="whom">
             <div class="regular-container">
                 <div class="slide__title">Для кого</div>
                 <div class="for-whom__content">
@@ -84,7 +101,15 @@
                     <div class="for-whom__text">
                         <div class="for-whom__title">Заголовок про все типы клиентов, может быть в две строки</div>
                         <div class="for-whom__description">Маркетплейс – онлайн-площадка для продаж товаров и услуг (цифровая полка). Универсальные маркетплейсы – это миллионы SKU ассортимента и десятки миллионов визитов каждый месяц</div>
-                        <button class="for-whom__button-consultation button">Получить консультацию</button>
+                        <button
+                                class="for-whom__button-consultation button"
+                                data-toggle="modal"
+                                data-modal-id="get-consult"
+                                data-modal-title="Получить консультацию"
+                                data-modal-submit="Отправить"
+                                data-target="#modal-1">
+                            Получить консультацию
+                        </button>
                     </div>
                 </div>
             </div>
@@ -113,84 +138,89 @@
                     <div class="analytics__text">
                         <div class="analytics__title">В структуре мирового e-commerce маркетплейсы занимают 60 %</div>
                         <div class="analytics__description">Маркетплейс – онлайн-площадка для продаж товаров и услуг (цифровая полка). Универсальные маркетплейсы – это миллионы SKU ассортимента и десятки миллионов визитов каждый месяц</div>
-                        <a class="analytics__document-link document-link">
-                            <div class="document-link__icon document-link__icon-pdf">
+                        <button class="analytics__document-link document-link"
+                                data-toggle="modal"
+                                data-modal-id="get-consult"
+                                data-modal-title="Получить исследование"
+                                data-modal-submit="Отправить"
+                                data-target="#modal-1">
+                            <span class="document-link__icon document-link__icon-pdf">
                                 <span>PDF</span>
-                            </div>
-                            <div class="document-link__text">Получить исследование</div>
-                        </a>
+                            </span>
+                            <span class="document-link__text">Получить исследование</span>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="slide regular-slide slide-our-work">
+        <div class="slide regular-slide slide-our-work" id="how">
             <div class="slide-our-work-container">
-                <div class="regular-container">
-                    <div class="slide__title">Как построена наша работа</div>
+                <div class="slide__title">
+                    <div class="regular-container">Как построена наша работа</div>
                 </div>
                 <div class="our-work__content">
 
-                </div>
-                <div class="slide-our-work__line">
-                    <div class="our-work__steps">
-                        <div class="our-work__step" id="ow-step-1">
-                            <div class="our-work__picture">
-                                <div class="our-work__img" style="background-image: url(img/img-1.png);"></div>
+                    <div class="slide-our-work__line">
+                        <div class="our-work__steps">
+                            <div class="our-work__step" id="ow-step-1">
+                                <div class="our-work__picture">
+                                    <div class="our-work__img" style="background-image: url(img/img-1.png);"></div>
+                                </div>
+                                <div class="our-work__header-num">01</div>
+                                <div class="our-work__header-name">Обсуждение</div>
+                                <div class="our-work__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
                             </div>
-                            <div class="our-work__header-num">01</div>
-                            <div class="our-work__header-name">Обсуждение</div>
-                            <div class="our-work__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
-                        </div>
-                        <div class="our-work__step" id="ow-step-2">
-                            <div class="our-work__picture">
-                                <div class="our-work__img" style="background-image: url(img/img-2.png);"></div>
+                            <div class="our-work__step" id="ow-step-2">
+                                <div class="our-work__picture">
+                                    <div class="our-work__img" style="background-image: url(img/img-2.png);"></div>
+                                </div>
+                                <div class="our-work__header-num">02</div>
+                                <div class="our-work__header-name">Исследование</div>
+                                <div class="our-work__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
                             </div>
-                            <div class="our-work__header-num">02</div>
-                            <div class="our-work__header-name">Исследование</div>
-                            <div class="our-work__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
-                        </div>
-                        <div class="our-work__step" id="ow-step-3">
-                            <div class="our-work__picture">
-                                <div class="our-work__img" style="background-image: url(img/img-3.jpg);"></div>
+                            <div class="our-work__step" id="ow-step-3">
+                                <div class="our-work__picture">
+                                    <div class="our-work__img" style="background-image: url(img/img-3.jpg);"></div>
+                                </div>
+                                <div class="our-work__header-num">03</div>
+                                <div class="our-work__header-name">Результаты</div>
+                                <div class="our-work__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
                             </div>
-                            <div class="our-work__header-num">03</div>
-                            <div class="our-work__header-name">Результаты</div>
-                            <div class="our-work__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
-                        </div>
-                        <div class="our-work__step" id="ow-step-4">
-                            <div class="our-work__picture">
-                                <div class="our-work__img" style="background-image: url(img/img-4.jpg);"></div>
+                            <div class="our-work__step" id="ow-step-4">
+                                <div class="our-work__picture">
+                                    <div class="our-work__img" style="background-image: url(img/img-4.jpg);"></div>
+                                </div>
+                                <div class="our-work__header-num">04</div>
+                                <div class="our-work__header-name">Передача<br>исходников</div>
+                                <div class="our-work__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
                             </div>
-                            <div class="our-work__header-num">04</div>
-                            <div class="our-work__header-name">Передача<br>исходников</div>
-                            <div class="our-work__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
-                        </div>
-                        <div class="our-work__step" id="ow-step-5">
-                            <div class="our-work__picture">
-                                <div class="our-work__img" style="background-image: url(img/img-5.jpg);"></div>
+                            <div class="our-work__step" id="ow-step-5">
+                                <div class="our-work__picture">
+                                    <div class="our-work__img" style="background-image: url(img/img-5.jpg);"></div>
+                                </div>
+                                <div class="our-work__header-num">05</div>
+                                <div class="our-work__header-name">Регулярный<br>аудит</div>
+                                <div class="our-work__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
                             </div>
-                            <div class="our-work__header-num">05</div>
-                            <div class="our-work__header-name">Регулярный<br>аудит</div>
-                            <div class="our-work__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
                         </div>
+
+                        <svg id="svg-work-line" style="height: auto">
+                            <path id="ctrl1" class="control" d="" fill="transparent"></path>
+                            <path id="ctrl2" class="control" d="" fill="transparent"></path>
+
+                            <path id="path" class="draw" d="" fill="transparent" stroke="#d4d4d4"></path>
+
+                            <circle id="point-1" r="4" fill="#707070"></circle>
+                            <circle id="point-2" r="4" fill="#707070"></circle>
+                            <circle id="point-3" r="4" fill="#707070"></circle>
+                            <circle id="point-4" r="4" fill="#707070"></circle>
+                            <circle id="point-5" r="4" fill="#707070"></circle>
+
+                            <circle id="point-at-wrapper" r="18" fill="rgba(255, 0, 0, 0.2)"></circle>
+                            <circle id="point-at" r="5" fill="red"></circle>
+                        </svg>
                     </div>
-
-                    <svg id="svg-work-line" style="height: auto">
-                        <path id="ctrl1" class="control" d="" fill="transparent"></path>
-                        <path id="ctrl2" class="control" d="" fill="transparent"></path>
-
-                        <path id="path" class="draw" d="" fill="transparent" stroke="#d4d4d4"></path>
-
-                        <circle id="point-1" r="4" fill="#707070"></circle>
-                        <circle id="point-2" r="4" fill="#707070"></circle>
-                        <circle id="point-3" r="4" fill="#707070"></circle>
-                        <circle id="point-4" r="4" fill="#707070"></circle>
-                        <circle id="point-5" r="4" fill="#707070"></circle>
-
-                        <circle id="point-at-wrapper" r="18" fill="rgba(255, 0, 0, 0.2)"></circle>
-                        <circle id="point-at" r="5" fill="red"></circle>
-                    </svg>
                 </div>
             </div>
         </div>
@@ -205,12 +235,12 @@
                     <div class="slide-example__text">
                         <div class="slide__title">Пример результата</div>
                         <div class="slide-example__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
-                        <a href="" class="slide-example__document-link document-link">
-                            <div class="document-link__icon document-link__icon-pdf">
+                        <button class="slide-example__document-link document-link" data-toggle="modal" data-target="#download-example">
+                            <span class="document-link__icon document-link__icon-pdf">
                                 <span>PDF</span>
-                            </div>
-                            <div class="document-link__text">Скачать пример</div>
-                        </a>
+                            </span>
+                            <span class="document-link__text">Скачать пример</span>
+                        </button>
                     </div>
                     <div class="slide-example__slider-wrapper">
 
@@ -317,7 +347,7 @@
 
 
 
-        <div class="slide regular-slide slide-why-we">
+        <div class="slide regular-slide slide-why-we" id="why">
             <div class="slide-background">
                 <div class="slide-background__colored"></div>
             </div>
@@ -326,7 +356,12 @@
                     <div class="slide-why-we__text">
                         <div class="slide__title">Почему мы</div>
                         <div class="slide-why-we__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
-                        <button class="slide-why-we__button-work button">Работать с нами</button>
+                        <button class="slide-why-we__button-work button"
+                                data-toggle="modal"
+                                data-modal-id="get-consult"
+                                data-modal-title="Работать с нами"
+                                data-modal-submit="Отправить"
+                                data-target="#modal-1">Работать с нами</button>
                     </div>
                     <div class="slide-why-we-blocks">
                         <div class="slide-why-we-block ww-block-1">30 лет на рынке</div>
@@ -344,45 +379,65 @@
         </div>
 
 
-        <div class="slide regular-slide slide-questions">
+        <div class="slide regular-slide slide-questions" id="faq">
             <div class="regular-container questions-container">
                 <div class="slide__title">Частые вопросы</div>
                 <div class="questions__content">
                     <div class="slide-questions__item">
                         <div class="slide-questions__header">
-                            <div class="slide-questions__header-text">Вопрос первый про нюансы взаимодействия и прочие мелочи, которые волнуют пользователя при обращении к аналитикам</div>
+                            <div class="slide-questions__header-text">Стоит ли продавать свой товар на чужой площадке?</div>
                             <div class="slide-questions__item-icon-w">
                                 <div class="slide-questions__item-icon">&#xF00D;</div>
                             </div>
                         </div>
-                        <div class="slide-questions__reply">Для входа с нуля, если ранее сбыт компании осуществлялся через дистрибуторов, розничные сети и другие каналы сбыта не считая маркетплейсы</div>
+                        <div class="slide-questions__reply">Маркетплейс – один из 10 каналов продаж в интернете. Он дает компании возможность доступа к миллионной аудитории, десятку миллионов визитов каждый месяц, возможность быстрого старта продаж без раскрутки собственного сайта. Нельзя сказать, что это чужая площадка. Формально, да, права на нее принадлежат владельцам маркетплейса, Продавец платит площадке % с каждой продажи, но работа Продавца идет через личный кабинет: электронный документооборот, настройка и оформление карточек товаров, изменение ценовой политики, обратная связь от клиентов, прогноз спроса на товары… => нет зависимости от менеджеров так называемой «чужой площадки», результат продаж Товаров = результат усилий Продавца</div>
                     </div>
                     <div class="slide-questions__item">
                         <div class="slide-questions__header">
-                            <div class="slide-questions__header-text">Вопрос первый про нюансы взаимодействия и прочие мелочи, которые волнуют пользователя</div>
+                            <div class="slide-questions__header-text">Если конкуренты уже давно продают на маркетплейсах, не поздно ли начинать мне, удастся ли войти результативно?</div>
                             <div class="slide-questions__item-icon-w">
                                 <div class="slide-questions__item-icon">&#xF00D;</div>
                             </div>
                         </div>
-                        <div class="slide-questions__reply">Для входа с нуля, если ранее сбыт компании осуществлялся через дистрибуторов, розничные сети и другие каналы сбыта не считая маркетплейсы</div>
+                        <div class="slide-questions__reply">На сегодня маркетплейсы - самый большой и быстрорастущий канал продаж, ежедневно на этих площадках растет число Продавцов и число покупателей, идет ротация продавцов, безусловно, справляются не все. И это возможность. Что касается конкуренции. На маркетплейсах один и тот же товар порой представлен двумя, а порой и 7-10 разными Продавцами. Конкуренция идет на уровне цен, качества отзывов и работы с контентом. Предварительная аналитика продаж, которую делает АРБ Про Digital для компаний, позволяет оцифровать потенциал входа – объем продаж в деньгах и штуках, факторы успеха конкурентов, сезонность по категориям и подкатегориям, Уровень цен на конкретные SKU – стратегии ценовой конкуренции – цены продажи, цены со скидкой, без скидки. Это база для расчета маржинальности и оценки – как сделать, чтобы продажи на маркетплейсе были прибыльна со старта</div>
                     </div>
                     <div class="slide-questions__item">
                         <div class="slide-questions__header">
-                            <div class="slide-questions__header-text">Вопрос первый про нюансы взаимодействия</div>
+                            <div class="slide-questions__header-text">Регулярно ли маркетплейсы выплачивают деньги?</div>
                             <div class="slide-questions__item-icon-w">
                                 <div class="slide-questions__item-icon">&#xF00D;</div>
                             </div>
                         </div>
-                        <div class="slide-questions__reply">Для входа с нуля, если ранее сбыт компании осуществлялся через дистрибуторов, розничные сети и другие каналы сбыта не считая маркетплейсы</div>
+                        <div class="slide-questions__reply">Продавая через маркетплейсы, продавец платит площадке % с каждой продажи. Разброс комиссии составляет 3-25% - зависит от категории и эффективности вашей работы.
+
+                            Регулярность перечисления денежных средств Продавцу зависит от площадки. В среднем, маркетплейс перечисляет денежные средства за реализованные в течение отчётного месяца товары на банковский счёт Продавца от еженедельно до дважды в месяц или в течение 20 календарных дней с момента размещения промежуточного отчета о продажах Товара</div>
                     </div>
                     <div class="slide-questions__item">
                         <div class="slide-questions__header">
-                            <div class="slide-questions__header-text">Вопрос первый про нюансы взаимодействия и прочие мелочи, которые волнуют пользователя</div>
+                            <div class="slide-questions__header-text">На маркетплейсы цены часто ниже, чем в офлайн магазинах, чем в обычных интернет-магазинах. Не буду ли я работать в минус?</div>
                             <div class="slide-questions__item-icon-w">
                                 <div class="slide-questions__item-icon">&#xF00D;</div>
                             </div>
                         </div>
-                        <div class="slide-questions__reply">Для входа с нуля, если ранее сбыт компании осуществлялся через дистрибуторов, розничные сети и другие каналы сбыта не считая маркетплейсы маркетплейсы маркетплейсы маркетплейсы маркетплейсы маркетплейсы</div>
+                        <div class="slide-questions__reply">Выгодные цены и возможность купить все в одном месте, получив все с бесплатной доставкой – то, что привлекает миллионы людей на маркетплейсы. Это, безусловно, идеальный вариант с точки зрения клиентского пути. Конкуренция на маркетплейсе среди продавцов идет на уровне цен, качества отзывов и работы с контентом. Предварительная аналитика продаж, которую делает АРБ Про Digital для компаний, позволяет оцифровать потенциал входа – объем продаж в деньгах и штуках, факторы успеха конкурентов, сезонность по категориям и подкатегориям, Уровень цен на конкретные SKU – стратегии ценовой конкуренции – цены продажи, цены со скидкой, без скидки. Это база для расчета маржинальности и оценки, проработки ценообразования таким образом, чтобы продажи на маркетплейсе были прибыльна со старта</div>
+                    </div>
+                    <div class="slide-questions__item">
+                        <div class="slide-questions__header">
+                            <div class="slide-questions__header-text">У нас есть свой интернет-магазин. Получается, если начать продавать на маркетплейсах будет конкуренция двух каналов/каннибализм?</div>
+                            <div class="slide-questions__item-icon-w">
+                                <div class="slide-questions__item-icon">&#xF00D;</div>
+                            </div>
+                        </div>
+                        <div class="slide-questions__reply">В интернете сегодня 10 каналов продаж, среди них  собственный интернет-магазин, маркетплейсы, социальные сети, тендерные площадки, интернет-магазины дистрибуторов и другие. Мы всегда рекомендуем работать одновременно в минимум 3х каналах, это позволяет выйти на больший охват, быть собственными силами или силами дистрибуторов, маркетплейсов в топ-5 выдачи поисковых систем и т.п. Экономику работы позволяет рассчитать экономическая модель, при этом в большинстве случаев видим, что каннибализм скорее стереотип, положительных эффектов развития продаж одновременно на разных площадках для всей системы продаж и общего финансового результата компании больше</div>
+                    </div>
+                    <div class="slide-questions__item">
+                        <div class="slide-questions__header">
+                            <div class="slide-questions__header-text">Если нет уникального товара, выходить ли на маркетплейсы?</div>
+                            <div class="slide-questions__item-icon-w">
+                                <div class="slide-questions__item-icon">&#xF00D;</div>
+                            </div>
+                        </div>
+                        <div class="slide-questions__reply">Рассмотреть и оцифровать такую возможность - обязательно. Отсутствие уникального товара не является противопоказанием к продажам на маркетплейсах, к тому, чтобы стать Продавцом. На маркетплейсах один и тот же товар порой представлен двумя, а порой и 10 разными поставщиками. Конкуренция идет на уровне цен, качества отзывов и работы с контентом. Предварительная аналитика продаж, которую делает АРБ Про Digital для компаний, позволяет оцифровать потенциал входа – объем продаж в деньгах и штуках, факторы успеха конкурентов, сезонность по категориям и подкатегориям, уровень цен на конкретные SKU – стратегии ценовой конкуренции – цены продажи, цены со скидкой, без скидки. Это база для расчета маржинальности будущих продаж, понимания «вписываемся» или нет по марже и подготовке к тому, чтобы продажи на маркетплейсе были прибыльна со старта</div>
                     </div>
                 </div>
             </div>
@@ -404,7 +459,7 @@
                         </div>
                         <div class="form__field">
                             <div class="form__field-name">Вопрос</div>
-                            <textarea name="" id="" cols="30" rows="3" class="form__textarea"></textarea>
+                            <textarea name="" cols="30" rows="3" class="form__textarea"></textarea>
                         </div>
                         <div class="form__field form__checkbox-container">
                             <input type="checkbox" name="agree-policy" id="ask-form-checkbox" class="form__checkbox">
@@ -424,12 +479,12 @@
             <div class="regular-container footer-container">
                 <div class="footer__left-side">
                     <div class="footer__site-map">
-                        <a href="." class="footer__site-map-link">Корпоративная стратегия</a>
-                        <a href="." class="footer__site-map-link">Экономика компании</a>
-                        <a href="." class="footer__site-map-link accent">АРБ Про DIGITALE</a>
-                        <a href="." class="footer__site-map-link">Технологии для бизнеса</a>
-                        <a href="." class="footer__site-map-link">Исследования и обзоры</a>
-                        <a href="." class="footer__site-map-link">Семинары и вебинары</a>
+                        <a class="footer__site-map-link" href=".">Корпоративная стратегия</a>
+                        <a class="footer__site-map-link" href=".">Экономика компании</a>
+                        <a class="footer__site-map-link accent" href=".">АРБ Про DIGITALE</a>
+                        <a class="footer__site-map-link" href=".">Технологии для бизнеса</a>
+                        <a class="footer__site-map-link" href=".">Исследования и обзоры</a>
+                        <a class="footer__site-map-link" href=".">Семинары и вебинары</a>
                     </div>
                     <div class="footer__logos">
                         <img src="img/logo-white.png" alt="" class="footer__logo">
@@ -438,37 +493,125 @@
                 </div>
                 <div class="footer__center-side">
                     <div class="footer__site-map">
-                        <a href="." class="footer__site-map-link">О нас</a>
-                        <a href="." class="footer__site-map-link">Команда</a>
-                        <a href="." class="footer__site-map-link">Контакты</a>
-                        <a href="." class="footer__site-map-link">Публикации</a>
+                        <a class="footer__site-map-link" href=".">О нас</a>
+                        <a class="footer__site-map-link" href=".">Команда</a>
+                        <a class="footer__site-map-link" href=".">Контакты</a>
+                        <a class="footer__site-map-link" href=".">Публикации</a>
                     </div>
                 </div>
                 <div class="footer__right-side">
                     <a href="tel:+78127702162" class="footer__contact-link">+7 812 770 21 62</a>
                     <a href="mailto:strategy@arb-pro.ru" class="footer__contact-link">strategy@arb-pro.ru</a>
                     <div class="footer__social">
-                        <a href="." class="footer__social-link footer__social-link-telegram">
+                        <a class="footer__social-link footer__social-link-telegram" href="." target="_blank">
                             <span class="footer__social-icon">&#xF2C6;</span>
                         </a>
-                        <a href="." class="footer__social-link footer__social-link-youtube">
+                        <a class="footer__social-link footer__social-link-youtube" href="https://www.youtube.com/user/TrainingInstARBPro" target="_blank">
                             <span class="footer__social-icon">&#xF167;</span>
                         </a>
-                        <a href="." class="footer__social-link footer__social-link-instagram">
+                        <a class="footer__social-link footer__social-link-instagram" href="https://www.instagram.com/arbpro_consult/" target="_blank">
                             <span class="footer__social-icon">&#xF16D;</span>
                         </a>
-                        <a href="." class="footer__social-link footer__social-link-facebook">
+                        <a class="footer__social-link footer__social-link-facebook" href="https://www.facebook.com/ARBPro.Business/" target="_blank">
                             <span class="footer__social-icon">&#xF082;</span>
+                        </a>
+                    </div>
+
+                    <div class="footer__brand-links">
+                        <a class="footer__doc-link" href=".">
+                            <span class="footer__doc-link-icon">PDF</span>
+                            <span class="footer__doc-link-name">
+                                <span>Скачать буклет<br>АРБ Про</span>
+                            </span>
+                        </a>
+                        <a class="footer__doc-link" href=".">
+                            <span class="footer__doc-link-icon">PDF</span>
+                            <span class="footer__doc-link-name">
+                                <span>Скачать логотип<br>АРБ Про DIGITALE</span>
+                            </span>
                         </a>
                     </div>
                 </div>
                 <div class="footer__copyright">© ГК «Институт Тренинга - АРБ Про», 2021</div>
                 <div></div>
                 <div>
-                    <a href="." class="footer__policy-link">Политика конфиденциальности</a>
+                    <a class="footer__policy-link" href=".">Политика конфиденциальности</a>
                 </div>
             </div>
         </div>
+
+        <button class="scroll-up">&#xF30C;</button>
     </main>
+
+    <div class="modals">
+
+        <div class="modal fade" id="modal-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <button type="button" class="modal-btn-close close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&#xF057;</span>
+                    </button>
+                    <div class="modal-body">
+                        <div class="modal-title">Заказать звонок</div>
+                        <form class="form" action="" method="post">
+                            <div class="form__field">
+                                <div class="form__field-name">Имя</div>
+                                <input type="text" name="name" class="form__input-text">
+                            </div>
+                            <div class="form__field">
+                                <div class="form__field-name">Email</div>
+                                <input type="email" name="email" class="form__input-text">
+                            </div>
+                            <div class="form__field">
+                                <div class="form__field-name">Телефон</div>
+                                <input type="tel" name="phone" class="form__input-text">
+                            </div>
+                            <div class="form__field form__checkbox-container">
+                                <input type="checkbox" name="agree-policy" id="callback-form-checkbox" class="form__checkbox">
+                                <label class="form__checkbox-styled-box" for="callback-form-checkbox"></label>
+                                <label class="form__checkbox-label ask-form__checkbox-label" for="callback-form-checkbox">
+                                    Я согласен с <a href="." target="_blank">политикой конфиденциальности</a>
+                                </label>
+                            </div>
+                            <button class="form__submit button">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="download-example" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <button type="button" class="modal-btn-close close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&#xF057;</span>
+                    </button>
+                    <div class="modal-body">
+                        <div class="modal-title">Скачать пример результата</div>
+                        <form class="form" action="" method="post">
+                            <div class="form__field">
+                                <div class="form__field-name">Имя</div>
+                                <input type="text" name="name" class="form__input-text">
+                            </div>
+                            <div class="form__field">
+                                <div class="form__field-name">Email</div>
+                                <input type="email" name="email" class="form__input-text">
+                            </div>
+                            <div class="form__field form__checkbox-container">
+                                <input type="checkbox" name="agree-policy" id="example-form-checkbox" class="form__checkbox">
+                                <label class="form__checkbox-styled-box" for="example-form-checkbox"></label>
+                                <label class="form__checkbox-label ask-form__checkbox-label" for="example-form-checkbox">
+                                    Я согласен с <a href="." target="_blank">политикой конфиденциальности</a>
+                                </label>
+                            </div>
+                            <button class="form__submit button">Скачать</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
 </body>
 </html>
