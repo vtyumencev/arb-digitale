@@ -1,6 +1,7 @@
 let docWidth = 0;
 const bgBorderWidth = 12;
 const regularContainerWidth = 1140;
+const minimizeWidth = 800;
 const numberOfPoints = 5;
 
 let p0 = {x:0,y:60},  // The first point on curve
@@ -218,34 +219,43 @@ function setMarkers() {
         docMargin = (docWidth - regularContainerWidth) / 2;
     }
 
-    let step = workWidth / numberOfPoints;
 
-    for(let i = 1; i <= numberOfPoints; i++) {
-
-        let point = document.getElementById('point-' + i);
-
-        let x = bgBorderWidth + 18 + docMargin + step * ( i - 1 );
-        let p = YBX(p0, c0, c1, p1, x);
-        point.setAttribute('cx', p.x);
-        point.setAttribute('cy', p.y);
-
-        let stepCard = document.getElementById('ow-step-' + i);
-        stepCard.style.left = ( p.x - 5 ) + 'px';
-        stepCard.style.bottom = (200 - p.y ) + 'px';
-
-        stepCard.querySelector('.our-work__picture').style.bottom = (90 + p.y) + 'px';
-
-        if(stepCard.offsetLeft + stepCard.querySelector('.our-work__picture').clientWidth > docWidth) {
-            stepCard.querySelector('.our-work__description').style.right = 0 + 'px';
-            stepCard.querySelector('.our-work__picture').style.right = 0 + 'px';
-        }
-        else {
-            stepCard.querySelector('.our-work__description').style.removeProperty('right')
-            stepCard.querySelector('.our-work__picture').style.removeProperty('right')
-        }
+    if(workWidth <= minimizeWidth) {
+        $('.our-work__step').removeAttr('style');
     }
+    else {
 
 
+
+        let step = workWidth / numberOfPoints;
+
+        for(let i = 1; i <= numberOfPoints; i++) {
+
+            let point = document.getElementById('point-' + i);
+
+            let x = bgBorderWidth + 18 + docMargin + step * ( i - 1 );
+            let p = YBX(p0, c0, c1, p1, x);
+            point.setAttribute('cx', p.x);
+            point.setAttribute('cy', p.y);
+
+            let stepCard = document.getElementById('ow-step-' + i);
+            stepCard.style.left = ( p.x - 5 ) + 'px';
+            stepCard.style.bottom = (200 - p.y ) + 'px';
+
+            stepCard.querySelector('.our-work__picture').style.bottom = (90 + p.y) + 'px';
+
+            if(stepCard.offsetLeft + stepCard.querySelector('.our-work__picture').clientWidth > docWidth) {
+                stepCard.querySelector('.our-work__description').style.right = 0 + 'px';
+                stepCard.querySelector('.our-work__picture').style.right = 0 + 'px';
+            }
+            else {
+                stepCard.querySelector('.our-work__description').style.removeProperty('right')
+                stepCard.querySelector('.our-work__picture').style.removeProperty('right')
+            }
+        }
+
+
+    }
 }
 
 function setupAtFirstPoint() {
