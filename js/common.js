@@ -16,6 +16,21 @@ $(function() {
         onPageSizeChange();
     });
 
+    $('.mobile-menu-button').on('click', function (){
+        $(this).toggleClass('active');
+        $('.mobile-menu').toggleClass('active');
+    });
+    $('a[href^="#"]').on('click', function (e){
+        e.preventDefault();
+        $('.mobile-menu-button, .mobile-menu').removeClass('active');
+
+        let targetID = $(this).attr('href').replace(/#/, '');
+        let targetEl = $('#' + targetID);
+        let targetScrollTop = targetEl.offset().top - $('.header-wrapper').outerHeight() - 10;
+
+        $("html, body").animate({ scrollTop: targetScrollTop }, "slow");
+    });
+
 
     // Слайд с вопросами
     $('.slide-questions__header').on('click', function (){
@@ -26,7 +41,12 @@ $(function() {
         else {
             showQuestion(item);
         }
-    })
+    });
+
+    $('.our-work__header-name').on('click', function (){
+        let item = $(this).parents('.our-work__step');
+        item.toggleClass('show');
+    });
 
     // Форма
     $('.form__input-text, .form__textarea').on('focus', function () {
@@ -43,6 +63,30 @@ $(function() {
     $('.form__checkbox').on('change', function () {
         $(this).parents('.form__checkbox-container').toggleClass('active');
     });
+
+
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+        let formData = $(this).serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "/ajax/digitale-form.php",
+            data: formData,
+            dataType: "json",
+            success: function(data) {
+
+            },
+            error: function() {
+
+            },
+            complete: function () {
+                $('#modal-1').modal('hide');
+                $('#modal-info').modal('show');
+            }
+        });
+    });
+
 
     let options =  {
         translation: {
@@ -72,6 +116,9 @@ $(function() {
         }
         if($(e.relatedTarget).data('modal-submit') !== undefined) {
             $('#modal-1 .form__submit').html($(e.relatedTarget).data('modal-submit'));
+        }
+        if($(e.relatedTarget).data('modal-submit') !== undefined) {
+            $('.form__id').val($(e.relatedTarget).data('modal-id'));
         }
     });
 
@@ -224,8 +271,6 @@ function setMarkers() {
         $('.our-work__step').removeAttr('style');
     }
     else {
-
-
 
         let step = workWidth / numberOfPoints;
 

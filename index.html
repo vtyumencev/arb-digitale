@@ -35,7 +35,7 @@
                 <div class="main-logo">
                     <a class="header__logo" href="#main"></a>
                 </div>
-                <div class="main-menu">
+                <div class="main-menu menu">
                     <ul>
                         <li><a href="#whom">Для кого</a></li>
                         <li><a href="#how">Схема работы</a></li>
@@ -44,8 +44,7 @@
                     </ul>
                 </div>
                 <div class="main-callback">
-                    <button
-                            class="callback-link button-colored"
+                    <button class="callback-link button-colored"
                             data-toggle="modal"
                             data-target="#modal-1"
                             data-modal-id="header-call-back"
@@ -55,7 +54,16 @@
                 </div>
             </header>
         </div>
+        <div class="mobile-menu menu">
+            <ul>
+                <li><a href="#whom">Для кого</a></li>
+                <li><a href="#how">Схема работы</a></li>
+                <li><a href="#why">Почему мы</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
     </div>
+
 
     <main id="main">
 
@@ -105,9 +113,8 @@
                     </div>
                     <div class="for-whom__text">
                         <div class="for-whom__title">Заголовок про все типы клиентов, может быть в две строки</div>
-                        <div class="for-whom__description">Маркетплейс – онлайн-площадка для продаж товаров и услуг (цифровая полка). Универсальные маркетплейсы – это миллионы SKU ассортимента и десятки миллионов визитов каждый месяц</div>
-                        <button
-                                class="for-whom__button-consultation button"
+                        <div class="for-whom__description regular-paragraph">Маркетплейс – онлайн-площадка для продаж товаров и услуг (цифровая полка). Универсальные маркетплейсы – это миллионы SKU ассортимента и десятки миллионов визитов каждый месяц</div>
+                        <button class="for-whom__button-consultation button"
                                 data-toggle="modal"
                                 data-modal-id="get-consult"
                                 data-modal-title="Получить консультацию"
@@ -142,13 +149,14 @@
                     </div>
                     <div class="analytics__text">
                         <div class="analytics__title">В структуре мирового e-commerce маркетплейсы занимают 60 %</div>
-                        <div class="analytics__description">Маркетплейс – онлайн-площадка для продаж товаров и услуг (цифровая полка). Универсальные маркетплейсы – это миллионы SKU ассортимента и десятки миллионов визитов каждый месяц</div>
+                        <div class="analytics__description regular-paragraph">Маркетплейс – онлайн-площадка для продаж товаров и услуг (цифровая полка). Универсальные маркетплейсы – это миллионы SKU ассортимента и десятки миллионов визитов каждый месяц</div>
                         <button class="analytics__document-link document-link"
                                 data-toggle="modal"
-                                data-modal-id="get-consult"
+                                data-target="#modal-1"
+                                data-modal-id="get-analytics"
                                 data-modal-title="Получить исследование"
-                                data-modal-submit="Отправить"
-                                data-target="#modal-1">
+                                data-modal-submit="Скачать"
+                                data-modal-link="">
                             <span class="document-link__icon document-link__icon-pdf">
                                 <span>PDF</span>
                             </span>
@@ -197,7 +205,7 @@
                                     <div class="our-work__img" style="background-image: url(img/img-4.jpg);"></div>
                                 </div>
                                 <div class="our-work__header-num">04</div>
-                                <div class="our-work__header-name">Передача<br>исходников</div>
+                                <div class="our-work__header-name">Передача <br>исходников</div>
                                 <div class="our-work__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
                             </div>
                             <div class="our-work__step" id="ow-step-5">
@@ -205,7 +213,7 @@
                                     <div class="our-work__img" style="background-image: url(img/img-5.jpg);"></div>
                                 </div>
                                 <div class="our-work__header-num">05</div>
-                                <div class="our-work__header-name">Регулярный<br>аудит</div>
+                                <div class="our-work__header-name">Регулярный <br>аудит</div>
                                 <div class="our-work__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
                             </div>
                         </div>
@@ -239,8 +247,14 @@
                 <div class="regular-container slide-example__content">
                     <div class="slide-example__text">
                         <div class="slide__title">Пример результата</div>
-                        <div class="slide-example__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
-                        <button class="slide-example__document-link document-link" data-toggle="modal" data-target="#download-example">
+                        <div class="slide-example__description regular-paragraph">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
+                        <button class="slide-example__document-link document-link"
+                                data-toggle="modal"
+                                data-target="#modal-1"
+                                data-modal-id="get-example"
+                                data-modal-title="Скачать пример результата"
+                                data-modal-submit="Скачать"
+                                data-modal-link="">
                             <span class="document-link__icon document-link__icon-pdf">
                                 <span>PDF</span>
                             </span>
@@ -250,32 +264,64 @@
                     <div class="slide-example__slider-wrapper">
 
                         <div class="swiper-container slide-example__slider">
+
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <div class="slide-example__slide-pic" style="background-image: url(img/diagram.png)"></div>
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/01.JPG)"></div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="slide-example__slide-pic" style="background-image: url(img/diagram.png)"></div>
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/02.JPG)"></div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="slide-example__slide-pic" style="background-image: url(img/diagram.png)"></div>
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/03.JPG)"></div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="slide-example__slide-pic" style="background-image: url(img/diagram.png)"></div>
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/04.JPG)"></div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="slide-example__slide-pic" style="background-image: url(img/diagram.png)"></div>
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/05.JPG)"></div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="slide-example__slide-pic" style="background-image: url(img/diagram.png)"></div>
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/06.JPG)"></div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="slide-example__slide-pic" style="background-image: url(img/diagram.png)"></div>
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/07.JPG)"></div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="slide-example__slide-pic" style="background-image: url(img/diagram.png)"></div>
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/08.JPG)"></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/09.JPG)"></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/10.JPG)"></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/11.JPG)"></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/12.JPG)"></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/13.JPG)"></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/14.JPG)"></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/15.JPG)"></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/16.JPG)"></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/17.JPG)"></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slide-example__slide-pic" style="background-image: url(img/slides/18.JPG)"></div>
                                 </div>
                             </div>
+
                         </div>
 
                         <div class="slider__bottom-bar">
@@ -294,16 +340,13 @@
                         </div>
 
                         <script>
-                            let interval;
-                            let tCounter = 5000;
+                            let se_interval;
+                            let se_tCounter = 5000;
 
-                            const swiper = new Swiper('.slide-example__slider', {
+                            const se_swiper = new Swiper('.slide-example__slider', {
                                 loop: true,
-                                pagination: {
-                                    el: '.swiper-pagination',
-                                },
                                 autoplay: {
-                                    delay: tCounter,
+                                    delay: se_tCounter,
                                 },
                                 on: {
                                     init: function () {
@@ -313,36 +356,38 @@
                             });
 
                             function ap() {
-                                let time = tCounter;
-                                interval = setInterval(function () {
+                                let time = se_tCounter;
+                                se_interval = setInterval(function () {
                                     time -= 100;
-                                    $('.slide-example__progress-bar-fill').css('width', (time / tCounter) * 100 + '%');
-                                    if(interval < 0) {
-                                        clearTimeout(interval);
+                                    $('.slide-example__progress-bar-fill').css('width', (time / se_tCounter) * 100 + '%');
+                                    if(se_interval < 0) {
+                                        clearTimeout(se_interval);
                                     }
                                 }, 100)
                             }
 
-                            swiper.on('autoplay', function() {
-                                clearTimeout(interval);
+                            se_swiper.on('autoplay', function() {
+                                clearTimeout(se_interval);
                                 ap();
                             });
-                            swiper.on('autoplayStop', function() {
+                            se_swiper.on('autoplayStop', function() {
                                 $('.slide-example__progress-bar-fill').css('width', (100 + '%'));
-                                clearTimeout(interval);
+                                clearTimeout(se_interval);
                             });
 
                             $('.slide-example__nav-prev').on('click', function () {
-                                swiper.slidePrev();
+                                se_swiper.slidePrev();
                             })
 
                             $('.slide-example__nav-next').on('click', function () {
-                                swiper.slideNext();
+                                se_swiper.slideNext();
                             })
 
-                            swiper.on('slideChange', function() {
-                               $('.slide-example__curr-count').html(swiper.realIndex + 1);
+                            se_swiper.on('slideChange', function() {
+                               $('.slide-example__curr-count').html(se_swiper.realIndex + 1);
                             });
+
+                            $('.slide-example__count').html($('.slide-example__slider .swiper-slide').length - 2);
                         </script>
 
                     </div>
@@ -357,29 +402,117 @@
                 <div class="slide-background__colored"></div>
             </div>
             <div class="slide-why-we-container">
-                <div class="slide-why-we__content">
-                    <div class="slide-why-we__text">
-                        <div class="slide__title">Почему мы</div>
-                        <div class="slide-why-we__description">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
-                        <button class="slide-why-we__button-work button"
-                                data-toggle="modal"
-                                data-modal-id="get-consult"
-                                data-modal-title="Работать с нами"
-                                data-modal-submit="Отправить"
-                                data-target="#modal-1">Работать с нами</button>
+                <div class="slide-why-we__nav-bar">
+                    <div class="slide-why-we__counter">
+                        <div class="slide-why-we__curr-count">1</div>
+                        <div class="slide-why-we__progress-bar">
+                            <div class="slide-why-we__progress-bar-fill"></div>
+                        </div>
+                        <div class="slide-why-we__count"></div>
                     </div>
-                    <div class="slide-why-we-blocks">
-                        <div class="slide-why-we-block ww-block-1">30 лет на рынке</div>
-                        <div class="slide-why-we-block ww-block-2">АРБ Про доверяют</div>
-                        <div class="slide-why-we-block ww-block-3">Еще надпись</div>
+                    <div class="slide-why-we__nav-buttons">
+                        <div class="slide-why-we__nav-button slide-why-we__nav-button-prev">&#xF30A;</div>
+                        <div class="slide-why-we__nav-button slide-why-we__nav-button-next">&#xF30B;</div>
                     </div>
                 </div>
-            </div>
-            <div class="slide-why-we__nav-bar">
-                <div class="slide-why-we__nav-buttons">
-                    <div class="slide-why-we__nav-button slide-why-we__nav-button-prev">&#xF30A;</div>
-                    <div class="slide-why-we__nav-button slide-why-we__nav-button-next">&#xF30B;</div>
+                <div class="slide-why-we__slider-wrapper">
+                    <div class="slide-why-we__slider swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide slide-why-we__content">
+                                <div class="slide-why-we__text">
+                                    <div class="slide__title">Почему мы</div>
+                                    <div class="slide-why-we__description regular-paragraph">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре</div>
+                                    <button class="slide-why-we__button-work button"
+                                            data-toggle="modal"
+                                            data-target="#modal-1"
+                                            data-modal-id="work-with-us"
+                                            data-modal-title="Работать с нами"
+                                            data-modal-submit="Отправить">Работать с нами</button>
+                                </div>
+                                <div class="slide-why-we-blocks">
+                                    <div class="slide-why-we-block ww-block-1">30 лет на рынке</div>
+                                    <div class="slide-why-we-block ww-block-2">АРБ Про доверяют</div>
+                                    <div class="slide-why-we-block ww-block-3">Еще надпись</div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide slide-review__content">
+                                <div class="slide-why-we__text">
+                                    <div class="slide__title">Нас рекомендуют</div>
+                                    <div class="slide__review-title">
+                                        <div class="slide__review-title-icon">&#xF164;</div>
+                                        <div class="slide__review-title-text">Действительно профессионалы высокого уровня!</div>
+                                    </div>
+                                    <div class="slide-why-we__description regular-paragraph">Обсуждаем Ваш ассортимент и текущую систему продаж (видеоконференция 30-40 минут). Запрашиваем номенклатуру, доступы к цифровой инфраструктуре ...</div>
+                                    <div class="slide-review__caption">
+                                        <div class="slide-review__caption-name">Имя фамилия</div>
+                                        <div class="slide-review__caption-job">Директор департамента связи и коммуникации с внешними поставщиками</div>
+                                        <div class="slide-review__caption-company">ООО ТоталСервисГрупп</div>
+                                    </div>
+                                </div>
+                                <div class="slide-why-we-blocks">
+                                    <div class="slide-why-we-block ww-block-1"></div>
+                                    <div class="slide-why-we-block ww-block-2 colored">
+                                        <div class="slide-why-we__block-picture" style="background-image: url(img/total-sa-logo.svg)"></div>
+                                    </div>
+                                    <div class="slide-why-we-block ww-block-3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <script>
+                    let ww_interval;
+                    let ww_tCounter = 10000;
+
+                    const ww_swiper = new Swiper('.slide-why-we__slider', {
+                        spaceBetween: 12,
+                        autoplay: {
+                            delay: ww_tCounter,
+                        },
+                        on: {
+                            init: function () {
+                                ww_ap();
+                            }
+                        },
+                    });
+
+                    function ww_ap() {
+                        let time = ww_tCounter;
+                        ww_interval = setInterval(function () {
+                            time -= 100;
+                            $('.slide-why-we__progress-bar-fill').css('height', (time / ww_tCounter) * 100 + '%');
+                            if(ww_interval < 0) {
+                                clearTimeout(ww_interval);
+                            }
+                        }, 100)
+                    }
+
+                    ww_swiper.on('autoplay', function() {
+                        clearTimeout(ww_interval);
+                        ww_ap();
+                    });
+                    ww_swiper.on('autoplayStop', function() {
+                        $('.slide-why-we__progress-bar-fill').css('height', (100 + '%'));
+                        clearTimeout(ww_interval);
+                    });
+
+                    $('.slide-why-we__nav-button-prev').on('click', function () {
+                        ww_swiper.slidePrev();
+                    })
+
+                    $('.slide-why-we__nav-button-next').on('click', function () {
+                        ww_swiper.slideNext();
+                    })
+
+                    ww_swiper.on('slideChange', function() {
+                        $('.slide-why-we__curr-count').html(ww_swiper.realIndex + 1);
+                    });
+
+                    $('.slide-why-we__count').html($('.slide-why-we__slider .swiper-slide').length);
+                </script>
+
             </div>
         </div>
 
@@ -456,18 +589,18 @@
                     <form class="form" action="" method="post">
                         <div class="form__field">
                             <div class="form__field-name">Имя</div>
-                            <input type="text" name="name" class="form__input-text">
+                            <input type="text" name="name" class="form__input-text" required>
                         </div>
                         <div class="form__field">
-                            <div class="form__field-name">Email</div>
-                            <input type="email" name="email" class="form__input-text">
+                            <div class="form__field-name">E-Mail</div>
+                            <input type="email" name="email" class="form__input-text" required>
                         </div>
                         <div class="form__field">
                             <div class="form__field-name">Вопрос</div>
-                            <textarea name="" cols="30" rows="3" class="form__textarea"></textarea>
+                            <textarea name="question" cols="30" rows="3" class="form__textarea" required></textarea>
                         </div>
                         <div class="form__field form__checkbox-container">
-                            <input type="checkbox" name="agree-policy" id="ask-form-checkbox" class="form__checkbox">
+                            <input type="checkbox" name="agree-policy" id="ask-form-checkbox" class="form__checkbox" required>
                             <label class="form__checkbox-styled-box" for="ask-form-checkbox"></label>
                             <label class="form__checkbox-label ask-form__checkbox-label" for="ask-form-checkbox">
                                 Я согласен с политикой конфиденциальности
@@ -484,12 +617,12 @@
             <div class="regular-container footer-container">
                 <div class="footer__left-side">
                     <div class="footer__site-map">
-                        <a class="footer__site-map-link" href=".">Корпоративная стратегия</a>
-                        <a class="footer__site-map-link" href=".">Экономика компании</a>
+                        <a class="footer__site-map-link" href="/strategy/">Корпоративная стратегия</a>
+                        <a class="footer__site-map-link" href="/finance/">Экономика компании</a>
                         <a class="footer__site-map-link accent" href=".">АРБ Про DIGITALE</a>
-                        <a class="footer__site-map-link" href=".">Технологии для бизнеса</a>
-                        <a class="footer__site-map-link" href=".">Исследования и обзоры</a>
-                        <a class="footer__site-map-link" href=".">Семинары и вебинары</a>
+                        <a class="footer__site-map-link" href="/technologies/">Технологии для бизнеса</a>
+                        <a class="footer__site-map-link" href="/research/">Исследования и обзоры</a>
+                        <a class="footer__site-map-link" href="/events/">Семинары и вебинары</a>
                     </div>
                     <div class="footer__logos">
                         <img src="img/logo-white.png" alt="" class="footer__logo">
@@ -498,17 +631,17 @@
                 </div>
                 <div class="footer__center-side">
                     <div class="footer__site-map">
-                        <a class="footer__site-map-link" href=".">О нас</a>
-                        <a class="footer__site-map-link" href=".">Команда</a>
-                        <a class="footer__site-map-link" href=".">Контакты</a>
-                        <a class="footer__site-map-link" href=".">Публикации</a>
+                        <a class="footer__site-map-link" href="/about-us/">О нас</a>
+                        <a class="footer__site-map-link" href="/about-us/#employees">Команда</a>
+                        <a class="footer__site-map-link" href="/contact/">Контакты</a>
+                        <a class="footer__site-map-link" href="/news/">Публикации</a>
                     </div>
                 </div>
                 <div class="footer__right-side">
                     <a href="tel:+78127702162" class="footer__contact-link">+7 812 770 21 62</a>
                     <a href="mailto:strategy@arb-pro.ru" class="footer__contact-link">strategy@arb-pro.ru</a>
                     <div class="footer__social">
-                        <a class="footer__social-link footer__social-link-telegram" href="." target="_blank">
+                        <a class="footer__social-link footer__social-link-telegram" href="https://t.me/neuroberesta" target="_blank">
                             <span class="footer__social-icon">&#xF2C6;</span>
                         </a>
                         <a class="footer__social-link footer__social-link-youtube" href="https://www.youtube.com/user/TrainingInstARBPro" target="_blank">
@@ -523,13 +656,13 @@
                     </div>
 
                     <div class="footer__brand-links">
-                        <a class="footer__doc-link" href=".">
+                        <a class="footer__doc-link" href="/upload/Buklet_ARB_Pro_2021.pdf">
                             <span class="footer__doc-link-icon">PDF</span>
                             <span class="footer__doc-link-name">
                                 <span>Скачать буклет<br>АРБ Про</span>
                             </span>
                         </a>
-                        <a class="footer__doc-link" href=".">
+                        <a class="footer__doc-link" href="/upload/Logo-ARB-Pro.rar">
                             <span class="footer__doc-link-icon">PDF</span>
                             <span class="footer__doc-link-name">
                                 <span>Скачать логотип<br>АРБ Про DIGITALE</span>
@@ -539,8 +672,8 @@
                 </div>
                 <div class="footer__copyright">© ГК «Институт Тренинга - АРБ Про», 2021</div>
                 <div></div>
-                <div>
-                    <a class="footer__policy-link" href=".">Политика конфиденциальности</a>
+                <div class="footer__policy-link">
+                    <a class="" href="/soglashenie/">Политика конфиденциальности</a>
                 </div>
             </div>
         </div>
@@ -559,23 +692,24 @@
                     <div class="modal-body">
                         <div class="modal-title">Заказать звонок</div>
                         <form class="form" action="" method="post">
+                            <input type="hidden" class="form__id" name="form_id">
                             <div class="form__field">
                                 <div class="form__field-name">Имя</div>
-                                <input type="text" name="name" class="form__input-text">
+                                <input type="text" name="name" class="form__input-text" required>
                             </div>
                             <div class="form__field">
                                 <div class="form__field-name">Email</div>
-                                <input type="email" name="email" class="form__input-text">
+                                <input type="email" name="email" class="form__input-text" required>
                             </div>
                             <div class="form__field">
                                 <div class="form__field-name">Телефон</div>
-                                <input type="tel" name="phone" class="form__input-text">
+                                <input type="tel" name="phone" class="form__input-text" required>
                             </div>
                             <div class="form__field form__checkbox-container">
-                                <input type="checkbox" name="agree-policy" id="callback-form-checkbox" class="form__checkbox">
+                                <input type="checkbox" name="agree-policy" id="callback-form-checkbox" class="form__checkbox" required>
                                 <label class="form__checkbox-styled-box" for="callback-form-checkbox"></label>
                                 <label class="form__checkbox-label ask-form__checkbox-label" for="callback-form-checkbox">
-                                    Я согласен с <a href="." target="_blank">политикой конфиденциальности</a>
+                                    Я согласен с <a href="/soglashenie/" target="_blank">политикой конфиденциальности</a>
                                 </label>
                             </div>
                             <button class="form__submit button">Отправить</button>
@@ -585,37 +719,19 @@
             </div>
         </div>
 
-        <div class="modal fade" id="download-example" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+        <div class="modal fade" id="modal-info" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <button type="button" class="modal-btn-close close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&#xF057;</span>
                     </button>
                     <div class="modal-body">
-                        <div class="modal-title">Скачать пример результата</div>
-                        <form class="form" action="" method="post">
-                            <div class="form__field">
-                                <div class="form__field-name">Имя</div>
-                                <input type="text" name="name" class="form__input-text">
-                            </div>
-                            <div class="form__field">
-                                <div class="form__field-name">Email</div>
-                                <input type="email" name="email" class="form__input-text">
-                            </div>
-                            <div class="form__field form__checkbox-container">
-                                <input type="checkbox" name="agree-policy" id="example-form-checkbox" class="form__checkbox">
-                                <label class="form__checkbox-styled-box" for="example-form-checkbox"></label>
-                                <label class="form__checkbox-label ask-form__checkbox-label" for="example-form-checkbox">
-                                    Я согласен с <a href="." target="_blank">политикой конфиденциальности</a>
-                                </label>
-                            </div>
-                            <button class="form__submit button">Скачать</button>
-                        </form>
+                        <div class="modal-message">Ваша заявка успешно отправлена!</div>
                     </div>
                 </div>
             </div>
         </div>
-
 
     </div>
 </body>
